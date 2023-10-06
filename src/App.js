@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
 
+import Home from "./component/Home/Home";
+import Index from "./component/layout";
+import { Route, Routes } from "react-router-dom";
+import Phonepage from "./component/phones/phonepage";
+import Brandpage from "./component/Brand/Brandpage";
+import Scrollbar from "./component/scroll/scrollbar";
 function App() {
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Index>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/Phones/:slug' element={<Phonepage />} />
+          <Route path='/Brands/:slug' element={<Brandpage />} />
+        </Routes>
+      </Index>
+      <Scrollbar />
+    </>
   );
 }
 
